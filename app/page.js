@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import MeshGradient from './MeshGradient';
 
 export default function Home() {
@@ -36,7 +35,7 @@ export default function Home() {
       subtitle: "RDIA Stage 2 Funded",
       description: "AI Depression Support Platform",
       tech: ["FlutterFlow", "Firebase", "Gemini 2.0"],
-      logo: "/HopeBot_logo.png"
+      logo: "/jobfair/HopeBot_logo.png"
     }
   ];
 
@@ -85,7 +84,7 @@ export default function Home() {
               <div className="flex items-start gap-4">
                 <div className="text-4xl flex-shrink-0">
                   {project.logo ? (
-                    <Image
+                    <img
                       src={project.logo}
                       alt={project.title + ' logo'}
                       width={48}
