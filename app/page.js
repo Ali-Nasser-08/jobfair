@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import MeshGradient from './MeshGradient';
 
 export default function Home() {
@@ -35,17 +36,17 @@ export default function Home() {
       subtitle: "RDIA Stage 2 Funded",
       description: "AI Depression Support Platform",
       tech: ["FlutterFlow", "Firebase", "Gemini 2.0"],
-      emoji: "💙"
+      logo: "/HopeBot_logo.png"
     }
   ];
 
   return (
     <div className="min-h-screen relative overflow-x-hidden">
       <MeshGradient />
-      
+
       {/* Main Content */}
       <div className="relative z-10 px-6 py-12 max-w-md mx-auto">
-        
+
         {/* Header */}
         <header className="text-center mb-16 animate-fade-in">
           <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-white/40 backdrop-blur-md flex items-center justify-center text-5xl shadow-lg">
@@ -70,7 +71,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-center mb-8 text-gray-800">
             Featured Projects
           </h2>
-          
+
           {projects.map((project, index) => (
             <div
               key={project.id}
@@ -82,7 +83,19 @@ export default function Home() {
               }}
             >
               <div className="flex items-start gap-4">
-                <div className="text-4xl">{project.emoji}</div>
+                <div className="text-4xl flex-shrink-0">
+                  {project.logo ? (
+                    <Image
+                      src={project.logo}
+                      alt={project.title + ' logo'}
+                      width={48}
+                      height={48}
+                      className="rounded-full object-cover"
+                    />
+                  ) : (
+                    project.emoji
+                  )}
+                </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-gray-800 mb-1">
                     {project.title}
@@ -105,7 +118,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              
+
               {/* QR Code Placeholder */}
               <div className="mt-4 pt-4 border-t border-gray-200/50 flex items-center justify-between">
                 <span className="text-sm text-gray-600">Scan for details →</span>
@@ -120,9 +133,9 @@ export default function Home() {
         {/* Footer QR Codes */}
         <footer className="bg-white/40 backdrop-blur-md rounded-3xl p-8 shadow-lg">
           <p className="text-center text-gray-700 mb-6 font-medium">
-            Interested? Scan for more info or ask for detailed project sheets! 
+            Interested? Scan for more info or ask for detailed project sheets!
           </p>
-          
+
           <div className="grid grid-cols-3 gap-4">
             {/* CV QR */}
             <div className="text-center">
@@ -131,7 +144,7 @@ export default function Home() {
               </div>
               <p className="text-xs font-medium text-gray-700">CV</p>
             </div>
-            
+
             {/* LinkedIn QR */}
             <div className="text-center">
               <div className="w-20 h-20 mx-auto bg-white rounded-2xl flex items-center justify-center mb-2 shadow-md">
@@ -139,7 +152,7 @@ export default function Home() {
               </div>
               <p className="text-xs font-medium text-gray-700">LinkedIn</p>
             </div>
-            
+
             {/* GitHub QR */}
             <div className="text-center">
               <div className="w-20 h-20 mx-auto bg-white rounded-2xl flex items-center justify-center mb-2 shadow-md">
